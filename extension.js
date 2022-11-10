@@ -9,42 +9,23 @@ const Clutter = imports.gi.Clutter;
 const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 
-function _get_lan_ip() {
-    // Ask the IP stack what route would be used to reach 1.1.1.1 (Cloudflare DNS)
-    // Specifically, what src would be used for the 1st hop?
-    var command_output_bytes = GLib.spawn_command_line_sync('ip route get 1.1.1.1')[1];
-    var command_output_string = '';
-
-    for (var current_character_index = 0;
-        current_character_index < command_output_bytes.length;
-        ++current_character_index)
-    {
-        var current_character = String.fromCharCode(command_output_bytes[current_character_index]);
-        command_output_string += current_character;
-    }
-
-    // Output of the "ip route" command will be a string
-    // " ... src 1.2.3.4 ..."
-    // So basically we want the next token (word) immediately after the "src"
-    // word, and nothing else. This is considerd our LAN IP address.
-    var Re = new RegExp(/src [^ ]+/g);
-    var matches = command_output_string.match(Re);
-    var lanIpAddress;
-    if (matches) {
-        lanIpAddress = matches[0].split(' ')[1];
-    } else {
-        lanIpAddress = '';
-    }
- 
-    return lanIpAddress;
+function _get_tun0_ip() {
+    // Use moreutils ifdata command to get tun0 IP v4 address
+    // spawn_command_line_sync returns an array of 4 datas, where second element - [1] - is the ifdata command ouput
+    // https://docs.gtk.org/glib/func.spawn_command_line_sync.html
+    var command_output_bytes = GLib.spawn_command_line_sync('ifdata -pa tun0')[1]; 
+    var tun0IpAddress = String(command_output_bytes);
+    tun0IpAddress = tun0IpAddress.trim();
+     
+    return tun0IpAddress;
 }
 
 // Our PanelMenu.Button subclass
-var LanIPAddressIndicator = class LanIPAddressIndicator extends PanelMenu.Button {
+var tun0IPAddressIndicator = class tun0IPAddressIndicator extends PanelMenu.Button {
 
     _init() {
         // Chaining up to the super-class
-        super._init(0.0, "LAN IP Address Indicator", false);
+        super._init(0.0, "tun0 IP Address Indicator", false);
         
         this.buttonText = new St.Label({
             text: 'Loading...',
@@ -63,7 +44,7 @@ var LanIPAddressIndicator = class LanIPAddressIndicator extends PanelMenu.Button
         }
         this._timeout = Mainloop.timeout_add_seconds(refreshTime, () => {this._updateLabel();});
 
-        this.buttonText.set_text(_get_lan_ip());
+        this.buttonText.set_text(_get_tun0_ip());
     }
 
     stop() {
@@ -79,16 +60,16 @@ var LanIPAddressIndicator = class LanIPAddressIndicator extends PanelMenu.Button
 // In gnome-shell >= 3.32 this class and several others became GObject
 // subclasses. We can account for this change simply by re-wrapping our
 // subclass in `GObject.registerClass()`
-LanIPAddressIndicator = GObject.registerClass(
-    {GTypeName: 'LanIPAddressIndicator'},
-    LanIPAddressIndicator
+tun0IPAddressIndicator = GObject.registerClass(
+    {GTypeName: 'tun0IPAddressIndicator'},
+    tun0IPAddressIndicator
 );
 
 let _indicator;
 
 function enable() {
-    _indicator = new LanIPAddressIndicator();
-    Main.panel.addToStatusArea('lan-ip-address-indicator', _indicator);
+    _indicator = new tun0IPAddressIndicator();
+    Main.panel.addToStatusArea('tun0-ip-address-indicator', _indicator);
 }
 
 function disable() {

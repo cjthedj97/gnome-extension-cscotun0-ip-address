@@ -1,13 +1,13 @@
 {
-  "description": "Show LAN IP address on GNOME panel. Do not show loopback addresses (127.0.0.0/8) or Docker networks.", 
-  "name": "LAN IP Address", 
+  "description": "Show tun0 IP address on GNOME panel. Do not show loopback addresses (127.0.0.0/8) or other network interface IP addresses. Please install moreutils package as a depedency.", 
+  "name": "tun0 IP Address", 
   "shell-version": [
     "40",
     "41",
     "42",
     "43"
   ], 
-  "url": "https://github.com/Josholith/gnome-extension-lan-ip-address", 
-  "uuid": "lan-ip-address@mrhuber.com", 
-  "version": 11
+  "url": "https://github.com/AdamantisSpinae/gnome-extension-tun0-ip-address", 
+  "uuid": "tun0-ip-address@adamantisspinae.github.com", 
+  "version": 1
 }
