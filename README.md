@@ -11,6 +11,7 @@ This extension also respects your privacy and bandwidth, as it makes absolutely 
 
 ## Requirements
 moreutils package so *ifdata* command works.
+
 **Debian**
 ```sh
 sudo apt install moreutils
