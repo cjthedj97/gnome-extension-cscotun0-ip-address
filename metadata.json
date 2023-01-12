@@ -1,13 +1,13 @@
 {
-  "description": "Show tun0 IP address on GNOME panel. Do not show loopback addresses (127.0.0.0/8) or other network interface IP addresses. Please install moreutils package as a depedency.", 
-  "name": "tun0 IP Address", 
+  "description": "Show cscotun0 IP address on GNOME panel. Do not show loopback addresses (127.0.0.0/8) or other network interface IP addresses. Please install moreutils package as a depedency.", 
+  "name": "cscotun0 IP Address", 
   "shell-version": [
     "40",
     "41",
     "42",
     "43"
   ], 
-  "url": "https://github.com/AdamantisSpinae/gnome-extension-tun0-ip-address", 
-  "uuid": "tun0-ip-address@adamantisspinae.github.com", 
+  "url": "", 
+  "uuid": "cscotun0-ip-address@cjthedj97.github.com", 
   "version": 1
 }
