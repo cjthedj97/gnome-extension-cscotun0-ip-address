@@ -2,7 +2,7 @@
 This is the code built to give you you VPN IP of an anyconnect tunnel
 
 ## Impetus
-I specifically made this extension because I couldn't find one in the store that met my needs. I often play CTF (Capture The Flag) on my ethical hacking journey and I need something that will show me my cscotun0 IP address.
+I specifically made this as I was looking for an exterion that listed the IP from anyconnect VPN.
 
 ## Privacy
 This extension also respects your privacy and bandwidth, as it makes absolutely zero requests to the Internet and sends zero packets to the Internet. The plugin gets its information from the output of ifdata command (moreutils package dependency) and only displays the result in the GNOME panel; this information never leaves your computer.
@@ -41,4 +41,4 @@ Or if you actually want your LAN IP address, check out the extension this fork i
 If you want one for tun0 see https://github.com/AdamantisSpinae/gnome-extension-tun0-ip-address
 
 ## Nota Bene
-As it is my first Gnome extension and javascript, there may be some code adjustments needed so feel free to ask/notify.
+As it is my first Gnome extension please be understanding when repoeting any bugs.
