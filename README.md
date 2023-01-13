@@ -41,4 +41,4 @@ Or if you actually want your LAN IP address, check out the extension this fork i
 If you want one for tun0 see https://github.com/AdamantisSpinae/gnome-extension-tun0-ip-address
 
 ## Nota Bene
-As it is my first Gnome extension please be understanding when repoeting any bugs.
+As it is my first Gnome extension please be understanding when repoeting bugs.
