@@ -34,9 +34,15 @@ The above command returns the IP address associated to your cscotun0 interface. 
 Within the (Javascript) extension code, I am simply matching the result to show it in Gnome panel.
 
 ## Scope
-**What if you want to see your WAN or LAN IP address, too ?** This is out of scope for this simple extension. This extension by design only shows your cscotun0 IP address, just as the name suggests. It is designed for everyone who only need to see their cscotun0 address in a convenient place, and with total privacy (no calls to the Internet).
-If you actually want your WAN IP address or IPv6 addresses, check out this extension instead: [All IP Addresses](https://extensions.gnome.org/extension/3994/all-ip-addresses/)
-If you actually want your LAN IP address, check out the extension this fork is based one instead: [LAN IP address](https://extensions.gnome.org/extension/1762/lan-ip-address/). Finally if you want an extenstion that checks the tun0 interface see [TUN0 IP address](https://github.com/AdamantisSpinae/gnome-extension-tun0-ip-address)
+**What if you want to see your WAN or LAN IP address, too ?** This is out of scope for this simple extension. This extension by design only shows your cscotun0 IP address. It is designed for everyone who only need to see their cscotun0 address in a convenient place, and with total privacy (no calls to the Internet).
+
+Other options for different use cases are:
+
+ [All IP Addresses](https://extensions.gnome.org/extension/3994/all-ip-addresses/)
+ 
+ [LAN IP address](https://extensions.gnome.org/extension/1762/lan-ip-address/)
+ 
+ [TUN0 IP address](https://github.com/AdamantisSpinae/gnome-extension-tun0-ip-address)
 
 ## Nota Bene
 As it is my first Gnome extension please be understanding when repoeting bugs.
